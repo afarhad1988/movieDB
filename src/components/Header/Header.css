@@ -1,0 +1,18 @@
+header{
+    background: #032541;
+    padding: 20px 0 10px;
+}
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.header-container{
+    display: flex;
+}
+.category-name{
+    margin-top: 0;
+    margin-left: 30px;
+    color: white;
+    text-decoration: none;
+}

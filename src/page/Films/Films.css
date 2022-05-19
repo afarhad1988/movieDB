@@ -1,0 +1,129 @@
+.films{
+    padding: 20px 0;
+
+}
+
+.film-title{
+    text-align: center;
+    margin: 20px 0 10px;
+}
+.film-title:hover{
+    color: rgb(1,180,228);
+}
+.card-img{
+    position: relative;
+    height: 225px;
+}
+
+.film-card img{
+    max-width: 100%;
+}
+.scroller {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.film-card{
+    width: 150px;
+    min-width: 150px;
+    margin-left: 20px;
+}
+.card-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 7px;
+
+}
+.actor-img{
+    border-radius: 10px;
+    width: 150px;
+    height: 225px;
+}
+.film-date{
+    text-align: center;
+    margin: 0 0 20px;
+
+}
+.filmsInfo-average{
+    margin: 5px 0 5px;
+    border-radius: 50%;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    background: black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.film-average{
+    border-radius: 50%;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    background: black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+
+}
+
+.filmsInfo-title{
+    font-size: 35px;
+    color: white;
+    margin: 0;
+}
+
+.filmsInfo-tagline{
+    font-style: italic;
+    color: #c0baba;
+    font-size: 17px;
+}
+
+.filmsInfo-review{
+    color: white;
+    font-size: 20px;
+    margin: 10px 0 8px;
+}
+
+.filmsInfo-overview{
+    font-size: 16px;
+     color: white;
+    margin-bottom: 10px;
+}
+.actor-name{
+ margin-bottom: 0;
+
+}
+
+.bold-actor-role{
+    margin-top: 0;
+}
+
+.actor-card{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.filmsInfo-company{
+
+    margin-right:20px;
+    color: white;
+}
+
+.trailer-title{
+    margin: 20px 0 10px;
+}
