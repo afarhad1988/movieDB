@@ -13,7 +13,7 @@ const Browse = () => {
 					setBrowse(res.data)
 					setIsLoading(false)
 				})
-	},[])
+	},[id])
 	if(isLoading){
 		return 'Loading...'
 	}
