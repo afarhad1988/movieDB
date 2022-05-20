@@ -1,29 +1,25 @@
 import React, { useState} from 'react';
+import {Link, useNavigate} from "react-router-dom";
+
 import './Search.css'
 import background from '../../assets/images/search-background.jpg'
 
 
-
-
-
-
-
 const Search = () => {
 	const [search, setSearch] = useState('')
-
+    let navigate = useNavigate
 
 	const handleInput = (e)=>{
 		setSearch(e.target.value)
 	}
     const handleSearch = (e)=>{
 		if(e.key === 'Enter'){
-              handleClick()
+              navigate(`/browse/${search}`)
 		}
 	}
-   const handleClick = ()=>{
-
-	}
-
+   const handleClick = () =>{
+	   navigate(`/browse/${search}`)
+   }
 
 
 
@@ -35,7 +31,7 @@ const Search = () => {
 						<h4 className='search-subtitle' >Миллионы фильмов, сериалов и людей. Исследуйте сейчас.</h4>
 						<form action="" className='search-form'>
 							<input className='search-input' type="text" placeholder='Найти фильм, сериал, персону.....' onKeyPress={handleSearch} onChange={(handleInput)}/>
-							<input className='search-submit' type="submit" value='Search' onClick={(handleClick)} disabled={!search.trim()}/>
+							<Link to={`/browse/${search}`}><input className='search-submit' type="submit" value='Search' onClick={(handleClick)} disabled={!search.trim()}/></Link>
 						</form>
 					</div>
 			</div>

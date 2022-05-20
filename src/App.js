@@ -5,7 +5,7 @@ import Films from "./page/Films";
 import Serials from "./page/Serials";
 import Header from "./components/Header";
 import FilmInfo from "./page/FilmInfo";
-import SearchInfo from "./page/SearchInfo";
+import Browse from "./page/Browse";
 
 const App = () => {
 	return (
@@ -19,8 +19,8 @@ const App = () => {
 					<Route className="container">
 						<Route path="/films" element={<Films/>}/>
 						<Route path="/serials" element={<Serials/>}/>
-						<Route path="/search/:name" element={<SearchInfo/>}/>
-						<Route path="/person/:id" element={<SearchInfo/>}/>
+						<Route path="/browse/:id" element={<Browse/>}/>
+						{/*<Route path="/person/:id" element={<Browse/>}/>*/}
 
 					</Route>
 				</Routes>
