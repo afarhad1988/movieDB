@@ -6,6 +6,7 @@ import Serials from "./page/Serials";
 import Header from "./components/Header";
 import FilmInfo from "./page/FilmInfo";
 import Browse from "./page/Browse";
+import Person from "./page/Person";
 
 const App = () => {
 	return (
@@ -20,7 +21,7 @@ const App = () => {
 						<Route path="/films" element={<Films/>}/>
 						<Route path="/serials" element={<Serials/>}/>
 						<Route path="/browse/:id" element={<Browse/>}/>
-						{/*<Route path="/person/:id" element={<Browse/>}/>*/}
+						<Route path="/person/:id" element={<Person/>}/>
 
 					</Route>
 				</Routes>

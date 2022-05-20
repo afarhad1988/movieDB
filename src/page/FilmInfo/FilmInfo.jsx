@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 import ReactPlayer from 'react-player'
+import Spinner from "../../components/Spinner";
 
 
 const FilmInfo = () => {
@@ -34,7 +35,7 @@ const FilmInfo = () => {
   })
 
 	if (isLoading || actorsLoading) {
-		return 'Loading...'
+		return <Spinner/>
 	}
 	return (
 			<div>
@@ -89,7 +90,7 @@ const FilmInfo = () => {
 
 											<Link to={`/person/${actor.id}`} key={actor.id} >
 												<img className='actor-img'
-													 src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt=""/>
+													 src={actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`: 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'} alt=""/>
 											</Link>
 											<Link to={`/person/${actor.id}`}><h4 className="actor-name">{actor.name}</h4></Link>
 											<p className="bold-actor-role">{actor.character}</p>

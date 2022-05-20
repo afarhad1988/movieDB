@@ -1,7 +1,7 @@
 import React from 'react';
 import Films from "../Films";
 import Search from "../../components/Search";
-import Trends from "../Trends";
+
 
 
 
@@ -11,7 +11,6 @@ const Homepage = () => {
 				<Search/>
 				<div className="container">
 					<Films/>
-					<Trends/>
 				</div>
 
 			</div>
