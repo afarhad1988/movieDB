@@ -127,3 +127,39 @@
 .trailer-title{
     margin: 20px 0 10px;
 }
+.trend{
+    padding-top: 30px
+}
+.selector{
+    display: flex;
+}
+
+.title-trend{
+    margin: 0 15px 0;
+
+}
+
+.selector-btn{
+    margin-right: 40px;
+    border: none;
+    font-size: 18px;
+    background: none;
+    padding: 8px 0;
+}
+
+.selector-buttons{
+   border: 1px solid #61dafb;
+    border-radius: 20px;
+}
+.btn-day{
+    color: rgba(6,195,199,1);
+    background: #032541;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-week{
+  cursor: pointer;
+}

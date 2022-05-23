@@ -15,8 +15,8 @@ const Person = () => {
 					setPersonLoading(false)
 				})
 	},[id])
-	const formatDate = (date) => {
-		const month = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
+	const formatDate2 = (date) => {
+		const month = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 		const reversedDate = date.split('-').reverse()
 		reversedDate[1] = month[reversedDate[1] - 1]
 		return reversedDate.join(' ')
@@ -34,8 +34,8 @@ const Person = () => {
 						<p className='person-about'><b>Известность за: </b><span>{person.known_for_department === 'Acting' ? "Актерское" +
 								" исскуство" : "-"}</span></p>
 						<p className='person-about'><b>Пол: </b><span>{person.gender === 2 ? "Мужской" : "Женский"}</span></p>
-						<p className='person-about'><b>Дата рождения: </b><span>{formatDate(person.birthday)}</span></p>
-						<p className='person-about'><b>Место рождения: </b><span>{formatDate(person.place_of_birth)}</span></p>
+						<p className='person-about'><b>Дата рождения: </b><span>{formatDate2(person.birthday)}</span></p>
+						<p className='person-about'><b>Место рождения: </b><span>{formatDate2(person.place_of_birth)}</span></p>
 
 
 

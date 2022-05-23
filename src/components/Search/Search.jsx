@@ -1,6 +1,5 @@
 import React, { useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
-
 import './Search.css'
 import background from '../../assets/images/search-background.jpg'
 
