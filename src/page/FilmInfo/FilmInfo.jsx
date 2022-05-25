@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {Link, useParams} from "react-router-dom";
+import {Link,  useParams} from "react-router-dom";
 import ReactPlayer from 'react-player'
 import Spinner from "../../components/Spinner";
 import FastAverageColor from "fast-average-color";
+
 
 
 const FilmInfo = () => {
@@ -14,6 +15,8 @@ const FilmInfo = () => {
 	const [color, setColor] = useState('')
 	const [actorsLoading, setActorsLoading] = useState(true)
 	const [isLoading, setIsLoading] = useState(true)
+
+
 
 	function onImageLoad(e){
       new FastAverageColor().getColorAsync(e.target).then((imgColor)=>{
@@ -48,7 +51,7 @@ const FilmInfo = () => {
 		return <Spinner/>
 	}
 	return (
-			<div>
+			<div className='filmsInfo'>
 				<div className='backdrop' style={{
 					marginTop: 30,
 
@@ -59,7 +62,7 @@ const FilmInfo = () => {
 							<div className='row'>
 								<div className="col-3">
 									<img onLoad={onImageLoad} crossOrigin='anonymous' style={{borderRadius: 10, width: 300}}
-										 src={`/t/p/w600_and_h900_face${filmsInfo.poster_path}`}
+										 src={filmsInfo.poster_path ? `https://image.tmdb.org/t/p/w600_and_h900_face${filmsInfo.poster_path}` : 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'}
 										 alt="poster" className=''/>
 								</div>
 								<div className="col-9">
@@ -98,7 +101,7 @@ const FilmInfo = () => {
 					<h4 className='title'>В главных ролях</h4>
 					<div className="scroller">
 						{
-							actors.map(actor =>
+							actors.slice(0,10).map(actor =>
 									<div className="film-card">
 
 											<Link to={`/person/${actor.id}`} key={actor.id} >
@@ -112,6 +115,7 @@ const FilmInfo = () => {
 									</div>
 							)
 						}
+
 					</div>
 				</div>
 

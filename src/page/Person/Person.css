@@ -1,7 +1,47 @@
+
 .person-img{
-    margin-top: 20px;
- width: 200px;
+max-width: 100%;
+    border-radius: 10px;
 }
 .person-about{
     margin-top: 5px;
+    font-size: 18px;
+}
+
+.title-description{
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.person{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.title-info{
+    font-size: 21px;
+}
+
+.person-name{
+    font-size: 2.2rem;
+}
+
+.person-biography{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.person-film{
+    margin-top: 10px;
+    font-size: 21px;
+}
+
+.title-name{
+text-align: center;
+margin-top: 10px;
+
+}
+
+.title-name:hover{
+    color: #61dafb;
 }

@@ -61,3 +61,31 @@ code {
   width: 50%;
   padding: 0 15px;
 }
+
+.col-8{
+  width: 65.7777%;
+  padding: 0 15px;
+}
+
+.col-4{
+  width: 27%;
+  padding: 0 15px;
+}
+html, body, #root {
+  height:100%;
+  width:100%;
+  display:block;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.footer {
+  position: relative;
+  left:0;
+  bottom: 0;
+  margin-top: auto
+}

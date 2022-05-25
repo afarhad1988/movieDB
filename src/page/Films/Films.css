@@ -80,7 +80,9 @@
     left: 10px;
 
 }
-
+.filmsInfo{
+    padding-bottom: 30px;
+}
 .filmsInfo-title{
     font-size: 35px;
     color: white;
@@ -128,7 +130,7 @@
     margin: 20px 0 10px;
 }
 .trend{
-    padding-top: 30px
+    padding-top: 40px
 }
 .selector{
     display: flex;
@@ -140,17 +142,14 @@
 }
 
 .selector-btn{
-    margin-right: 40px;
+    margin-right: 20px;
     border: none;
     font-size: 18px;
     background: none;
     padding: 8px 0;
 }
 
-.selector-buttons{
-   border: 1px solid #61dafb;
-    border-radius: 20px;
-}
+
 .btn-day{
     color: rgba(6,195,199,1);
     background: #032541;
@@ -160,6 +159,21 @@
     cursor: pointer;
 }
 
-.btn-week{
-  cursor: pointer;
+
+
+.btn-week:hover{
+    color: rgba(6,195,199,1);
+    background: #032541;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-week:hover .btn-day{
+    background: #e3e5e8;
+}
+
+.filmsOnTv{
+    padding-top: 20px;
 }

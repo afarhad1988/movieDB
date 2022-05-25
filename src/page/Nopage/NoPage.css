@@ -1,0 +1,7 @@
+.noPage{
+    width: 100%;
+}
+.noPage img{
+    width: 100%;
+    object-fit: cover;
+}

@@ -12,6 +12,20 @@ const Films = () => {
 	const [time, setTime] = useState('day')
 
 
+	const handleClick = (e) =>{
+		setTime('day')
+
+	}
+
+
+
+	const handleClick2 = (e) =>{
+		setTime('week')
+
+	}
+
+
+
 	useEffect(() => {
 		axios(`https://api.themoviedb.org/3/discover/movie?language=ru&api_key=6f19f87e3380315b9573c4270bfc863c`)
 				.then((res) => {
@@ -38,34 +52,42 @@ const Films = () => {
 	}
 	return (
 			<div className='container'>
-				<h4 className='title'>Что популярно</h4>
-				<div className='films scroller'>
-					{
-						films.map((film) => (
-								<div className="film-card">
-									<div className="card-img">
-										<Link to={`/films/${film.id}`} key={film.id}
-											  style={{textDecoration: 'none', color: 'black'}}>
-											<img src={`/t/p/w220_and_h330_face${film.poster_path}`}
-												 alt="poster"/>
-										</Link>
-										<div className='film-average'>
-											{film.vote_average}
+				<div className='filmsOnTv'>
+					<div className="selector">
+						<h4 className='title title-trend'>Что популярно</h4>
+						<div className='selector-buttons'>
+							<button onClick={handleClick} className='selector-btn btn-day'>По ТВ</button>
+							<button onClick={handleClick2}  className='selector-btn btn-week'>В кинотеатре</button>
+						</div>
+					</div>
+					<div className='films scroller'>
+						{
+							films.map((film) => (
+									<div className="film-card">
+										<div className="card-img">
+											<Link to={`/films/${film.id}`} key={film.id}
+												  style={{textDecoration: 'none', color: 'black'}}>
+												<img src={`/t/p/w220_and_h330_face${film.poster_path}`}
+													 alt="poster"/>
+											</Link>
+											<div className='film-average'>
+												{film.vote_average}
+											</div>
 										</div>
+										<Link to={`/films/${film.id}`}><h4 className='film-title'>{film.title}</h4>
+										</Link>
+										<p className='film-date'>{formatDate(film.release_date)}</p>
 									</div>
-									<Link to={`/films/${film.id}`}><h4 className='film-title'>{film.title}</h4>
-									</Link>
-									<p className='film-date'>{formatDate(film.release_date)}</p>
-								</div>
-						))
-					}
+							))
+						}
+					</div>
 				</div>
 				<div className='trend'>
 					<div className='selector'>
 						<h4 className='title title-trend'>В тренде</h4>
 						<div className='selector-buttons'>
-							<button onClick={(e)=> setTime('day')} className='selector-btn btn-day'>Cегодня</button>
-							<button onClick={(e)=> setTime('week')} className='selector-btn btn-week'>На этой неделе</button>
+							<button onClick={handleClick} className='selector-btn btn-day'>Cегодня</button>
+							<button onClick={handleClick2}  className='selector-btn btn-week'>На этой неделе</button>
 						</div>
 
 					</div>
