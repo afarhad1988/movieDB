@@ -4,35 +4,39 @@ import {Link} from "react-router-dom";
 import "./Films.css"
 import Spinner from "../../components/Spinner";
 
+
 const Films = () => {
 	const [films, setFilms] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
 	const [trends, setTrends] = useState([])
 	const [trendsLoading, setTrendsLoading] = useState(true)
 	const [time, setTime] = useState('day')
+    const [serial, setSerial] = useState('movie')
 
-
-	const handleClick = (e) =>{
+	const handleClickDay = (e) =>{
 		setTime('day')
-
 	}
-
-
-
-	const handleClick2 = (e) =>{
+	const handleClickWeek = (e) =>{
 		setTime('week')
-
 	}
+
+	const handleClickMovie = (e) =>{
+		setSerial('movie')
+	}
+	const handleClickSerial = (e) =>{
+		setSerial('tv')
+	}
+
 
 
 
 	useEffect(() => {
-		axios(`https://api.themoviedb.org/3/discover/movie?language=ru&api_key=6f19f87e3380315b9573c4270bfc863c`)
+		axios(`https://api.themoviedb.org/3/discover/${serial}?language=ru&api_key=6f19f87e3380315b9573c4270bfc863c`)
 				.then((res) => {
 					setFilms(res.data.results)
 					setIsLoading(false)
 				})
-	}, [])
+	}, [serial])
 	useEffect(() => {
 		axios(`https://api.themoviedb.org/3/trending/movie/${time}?language=ru&api_key=6f19f87e3380315b9573c4270bfc863c`)
 				.then((res) => {
@@ -56,8 +60,8 @@ const Films = () => {
 					<div className="selector">
 						<h4 className='title title-trend'>Что популярно</h4>
 						<div className='selector-buttons'>
-							<button onClick={handleClick} className='selector-btn btn-day'>По ТВ</button>
-							<button onClick={handleClick2}  className='selector-btn btn-week'>В кинотеатре</button>
+							<button onClick={handleClickMovie} className='selector-btn btn-day'>По ТВ</button>
+							<button onClick={handleClickSerial}  className='selector-btn btn-week'>В кинотеатре</button>
 						</div>
 					</div>
 					<div className='films scroller'>
@@ -74,20 +78,21 @@ const Films = () => {
 												{film.vote_average}
 											</div>
 										</div>
-										<Link to={`/films/${film.id}`}><h4 className='film-title'>{film.title}</h4>
+										<Link to={`/films/${film.id}`}><h4 className='film-title'>{film.title ? film.title : film.name}</h4>
 										</Link>
-										<p className='film-date'>{formatDate(film.release_date)}</p>
+										<p className='film-date'>{formatDate(film.release_date ? film.release_date : film.first_air_date )}</p>
 									</div>
 							))
 						}
 					</div>
 				</div>
+
 				<div className='trend'>
 					<div className='selector'>
 						<h4 className='title title-trend'>В тренде</h4>
 						<div className='selector-buttons'>
-							<button onClick={handleClick} className='selector-btn btn-day'>Cегодня</button>
-							<button onClick={handleClick2}  className='selector-btn btn-week'>На этой неделе</button>
+							<button onClick={handleClickDay} className='selector-btn btn-day'>Cегодня</button>
+							<button onClick={handleClickWeek}  className='selector-btn btn-week'>На этой неделе</button>
 						</div>
 
 					</div>
