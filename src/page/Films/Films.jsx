@@ -71,7 +71,7 @@ const Films = () => {
 										<div className="card-img">
 											<Link to={`/films/${film.id}`} key={film.id}
 												  style={{textDecoration: 'none', color: 'black'}}>
-												<img src={`/t/p/w220_and_h330_face${film.poster_path}`}
+												<img src={`https://image.tmdb.org/t/p/w220_and_h330_face${film.poster_path}`}
 													 alt="poster"/>
 											</Link>
 											<div className='film-average'>
@@ -104,7 +104,7 @@ const Films = () => {
 										<div className="card-img">
 											<Link to={`/films/${trend.id}`} key={trend.id}
 												  style={{textDecoration: 'none', color: 'black'}}>
-												<img src={`/t/p/w220_and_h330_face${trend.poster_path}`}
+												<img src={`https://image.tmdb.org/t/p/w220_and_h330_face${trend.poster_path}`}
 													 alt="poster"/>
 											</Link>
 											<div className='film-average'>

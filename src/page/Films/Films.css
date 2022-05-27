@@ -140,22 +140,33 @@
     margin: 0 15px 0;
 
 }
+.selector-buttons{
 
+    border-radius: 20px;
+    background: #61dafb;
+}
 .selector-btn{
-    margin-right: 20px;
+
     border: none;
     font-size: 18px;
     background: none;
     padding: 8px 0;
 }
 
-
 .btn-day{
+    width: 90px;
+    height: 40px;
+}
+.btn-week{
+    width: 150px;
+    height: 40px;
+}
+
+.btn-day:hover{
     color: rgba(6,195,199,1);
     background: #032541;
     border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
+
     cursor: pointer;
 }
 
@@ -165,8 +176,8 @@
     color: rgba(6,195,199,1);
     background: #032541;
     border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
+
+
     cursor: pointer;
 }
 
@@ -176,4 +187,11 @@
 
 .filmsOnTv{
     padding-top: 20px;
+}
+
+.facts-title{
+    margin-top: 40px;
+}
+.filmsInfo-facts{
+    margin-top: 10px;
 }
