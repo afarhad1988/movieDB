@@ -3,22 +3,17 @@ import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 import ReactPlayer from 'react-player'
 import Spinner from "../../components/Spinner";
-import FastAverageColor from "fast-average-color";
+
 
 const FilmInfo = () => {
 	const {id} = useParams()
 	const [filmsInfo, setFilmsInfo] = useState({})
 	const [actors, setActors] = useState([])
 	const [trailers, setTrailers] = useState([])
-	const [color, setColor] = useState('')
 	const [actorsLoading, setActorsLoading] = useState(true)
 	const [isLoading, setIsLoading] = useState(true)
 
-	function onImageLoad(e) {
-		new FastAverageColor().getColorAsync(e.target).then((imgColor) => {
-			setColor(`rgba(${imgColor.value.slice(0, 3).join(',')}, 0.5)`)
-		})
-	}
+
 
 	useEffect(() => {
 		axios(`https://api.themoviedb.org/3/movie/${id}?&language=ru&api_key=6f19f87e3380315b9573c4270bfc863c`)
@@ -50,13 +45,13 @@ const FilmInfo = () => {
 					backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${filmsInfo.backdrop_path})`
 				}}>
 					<div className='custom-bg' style={{
-						backgroundColor: color, paddingTop: 30,
+						backgroundColor: 'rgba(0, 0, 0, 0.5)', paddingTop: 30,
 						paddingBottom: 30
 					}}>
 						<div className="container">
 							<div className='row'>
 								<div className="col-3">
-									<img onLoad={onImageLoad} crossOrigin='anonymous'
+									<img
 										 style={{borderRadius: 10, width: 300}}
 										 src={filmsInfo.poster_path ? `https://image.tmdb.org/t/p/w600_and_h900_face${filmsInfo.poster_path}` : 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg'}
 										 alt="poster" className=''/>
