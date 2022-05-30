@@ -12,19 +12,24 @@ const Films = () => {
 	const [trendsLoading, setTrendsLoading] = useState(true)
 	const [time, setTime] = useState('day')
     const [serial, setSerial] = useState('movie')
-
-	const handleClickDay = (e) =>{
+    const [activeBtn, setActiveBtn] = useState(0)
+	const [activeTrendBtn, setActiveTrendBtn] = useState(0)
+	const handleClickDay = (index) =>{
 		setTime('day')
+		setActiveTrendBtn(index)
 	}
-	const handleClickWeek = (e) =>{
+	const handleClickWeek = (index) =>{
 		setTime('week')
+		setActiveTrendBtn(index)
 	}
 
-	const handleClickMovie = (e) =>{
+	const handleClickMovie = (index) =>{
 		setSerial('movie')
+		setActiveBtn(index)
 	}
-	const handleClickSerial = (e) =>{
+	const handleClickSerial = (index) =>{
 		setSerial('tv')
+		setActiveBtn(index)
 	}
 
 
@@ -51,6 +56,7 @@ const Films = () => {
 		reversedDate[1] = month[reversedDate[1] - 1]
 		return reversedDate.join(' ')
 	}
+
 	if (isLoading || trendsLoading) {
 		return <Spinner/>
 	}
@@ -60,8 +66,8 @@ const Films = () => {
 					<div className="selector">
 						<h4 className='title title-trend'>Что популярно</h4>
 						<div className='selector-buttons'>
-							<button onClick={handleClickMovie} className='selector-btn btn-day'>По ТВ</button>
-							<button onClick={handleClickSerial}  className='selector-btn btn-week'>В кинотеатре</button>
+							<button onClick={()=>handleClickMovie(0)} className={ `${activeBtn === 0 ? 'active' : ''} ${'selector-btn btn-day'}`} >По ТВ</button>
+							<button onClick={() =>handleClickSerial(1)} className={ `${activeBtn === 1 ? 'active' : ''} ${'selector-btn btn-week'}`}>В кинотеатре</button>
 						</div>
 					</div>
 					<div className='films scroller'>
@@ -91,8 +97,8 @@ const Films = () => {
 					<div className='selector'>
 						<h4 className='title title-trend'>В тренде</h4>
 						<div className='selector-buttons'>
-							<button onClick={handleClickDay} className='selector-btn btn-day'>Cегодня</button>
-							<button onClick={handleClickWeek}  className='selector-btn btn-week'>На этой неделе</button>
+							<button onClick={()=>handleClickDay(0)} className={ `${activeTrendBtn === 0 ? 'active' : ''} ${'selector-btn btn-day'}`}>Cегодня</button>
+							<button onClick={()=>handleClickWeek(1)}  className={ `${activeTrendBtn === 1 ? 'active' : ''} ${'selector-btn btn-week'}`}>На этой неделе</button>
 						</div>
 
 					</div>
